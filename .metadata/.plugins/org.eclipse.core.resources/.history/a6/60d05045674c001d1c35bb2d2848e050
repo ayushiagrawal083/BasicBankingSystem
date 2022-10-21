@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="userSignup.jsp">
+Name<input type="text" name="name" /><br />
+Email<input type="email" name="email" /><br/>
+Balance<input type="number" name="bal"/><br/>
+<input type="submit" value="Add Profile"/>
+</form>
+
+</body>
+</html>

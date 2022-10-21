@@ -1,0 +1,8 @@
+
+<body>
+<form action="transactionhis.jsp" >
+Please enter your Email:<input type="text" name="sender" /><br/>
+<input type="submit" value="View Transaction History"/>
+</form>
+
+</body>

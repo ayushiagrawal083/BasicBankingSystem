@@ -1,0 +1,70 @@
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page errorPage="errorpage.jsp" %>
+<%@include file="database.jsp" %>
+<%
+String qr="select * from customer ";
+Statement ps=con.createStatement();
+ResultSet rs=ps.executeQuery(qr);
+if(rs.next())
+{
+	%>	
+<style>
+table
+		{
+			width: 950px;
+			border-collapse: collapse;
+		}
+th
+		{
+			height: 50px;
+			background-color: yellow;;
+		    text-align: center;
+		}
+tr
+		{
+			text-align: center;
+			}
+</style>
+
+
+<table align="center" border="1px">
+	<tr>
+	<th>User Name</th>
+	<th>Email</th>
+	<th>Current Account Balance</th>
+	<th></th>
+	<th></th>
+	</tr>
+	<%
+	do
+	{
+	
+	String name=rs.getString("name");
+	String email=rs.getString("email");
+	String bal=rs.getString("bal");
+
+	%>
+	
+	
+	  <tr>
+		<td><%=name %></td>
+		<td><%=email %></td>
+		<td><%=bal %></td>
+		<td><a href="viewprofile.jsp?email=<%=email %>">View Profile</a></td>
+		<td><input type="submit" value="View Profile"></td>
+	</tr>
+		<%
+	}while(rs.next());
+	%>
+  </table><br /><br />
+	<%
+}
+else
+{
+	out.println("Transaction Failed");
+}
+con.close();
+%>
+
+

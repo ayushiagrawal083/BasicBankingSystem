@@ -1,0 +1,68 @@
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page errorPage="errorpage.jsp" %>
+<%@include file="database.jsp" %>
+<%
+String sender=request.getParameter("email");
+String qr=" select * from transaction where sender = '?' ";
+Statement ps=con.createStatement();
+ResultSet rs=ps.executeQuery(qr);
+if(rs.next())
+{
+	%>	
+<style>
+table
+		{
+			width: 950px;
+			border-collapse: collapse;
+		}
+th
+		{
+			height: 50px;
+			background-color: yellow;;
+		    text-align: center;
+		}
+tr
+		{
+			text-align: center;
+			}
+</style>
+
+
+<table align="center" border="1px">
+	<tr>
+	<th>Sender's Id</th>
+	<th>Reciever's Id</th>
+	<th>Transaction</th>
+
+	</tr>
+	<%
+	do
+	{
+	
+	String sender=rs.getString("sender");
+	String reciever=rs.getString("reciever");
+
+	%>
+	
+	
+	  <tr>
+		<td><%=sender %></td>
+		<td><%=reciever %></td>
+		<td><%=email %></td>
+		
+	</tr>
+		<%
+	}while(rs.next());
+	%>
+  </table><br /><br />
+	<%
+}
+else
+{
+	out.println("No Transaction History Available");
+}
+con.close();
+%>
+
+

@@ -1,0 +1,81 @@
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page errorPage="error.jsp" %>
+<%@include file="database.jsp" %>
+<%
+String email=(String)session.getAttribute("email");
+String qr="select * from customer ";
+PreparedStatement ps=con.prepareStatement(qr);
+ps.setString(1, email);
+ResultSet rs=ps.executeQuery();
+if(rs.next())
+{
+	%>	
+
+	<h1>All Pending Requests </h1>
+	<br />
+<style>
+table
+		{
+			width: 950px;
+			border-collapse: collapse;
+		}
+th
+		{
+			height: 50px;
+			background-color: yellow;;
+		    text-align: center;
+		}
+tr
+		{
+			text-align: center;
+			}
+</style>
+
+
+<table align="center" border="1px">
+	<tr>
+	<th>User Name</th>
+	<th>Date and Time Of Booking</th>
+	<th>Booking Status</th>
+	<th></th>
+	<th></th>
+	</tr>
+	<%
+	do
+	{
+	
+	String name=rs.getString("uname");
+	String uemail=rs.getString("uemail");
+	String dt=rs.getString("dt");
+	String status=rs.getString("bstatus");
+	%>
+	
+	
+	  <tr>
+		<form action="UpdateBookingStatus.jsp">
+		<td><%=name %></td>
+		<td><%=dt %><input type="hidden" name="dt" value="<%=dt %>" />
+		<input type="hidden" name="pemail" value="<%=email %>" />
+		<input type="hidden" name="uemail" value="<%=uemail %>" />
+		</td>
+		<td><%=status %></td>
+		<td><select name="status">
+		<option>Accept</option>
+		<option>Reject</option>
+		</select></td>
+		<td><input type="submit" value="Update Status"></td>
+		</form>
+	</tr>
+		<%
+	}while(rs.next());
+	%>
+  </table><br /><br />
+	<%
+}
+else
+{
+	out.println("no request found");
+}
+con.close();
+%>

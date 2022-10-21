@@ -1,0 +1,6 @@
+<form action="money.jsp" method="post">
+Sender's Email:<input type="email" name="email" /><br />
+Enter Amount:<input type="number" name="money" /><br />
+<input type="submit" value="Send Money"/>
+
+</form>

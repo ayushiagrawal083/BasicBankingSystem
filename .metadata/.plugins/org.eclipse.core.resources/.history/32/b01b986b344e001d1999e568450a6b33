@@ -1,0 +1,29 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page errorPage="errorpage.jsp" %>
+<%@include file="database.jsp"%>
+<%
+String reciever=(String)session.getAttribute("email");
+session.setAttribute("email", reciever);
+String sender= request.getParameter("email");
+String money= request.getParameter("money");
+String qr="insert into transaction set (?,?.?),reciever='"+reciever+"'";
+			PreparedStatement ps=con.prepareStatement(qr);
+			ps.setString(1,sender);
+			ps.setString(2,reciever);
+			ps.setString(3,money);
+			int i= ps.executeUpdate();
+			RequestDispatcher rd= request.getRequestDispatcher("sendmoney.html");
+			rd.include(request, response);
+			if(i>0)
+			{
+				out.print("<script>window.alert('Transaction Successful');</script>");
+			}
+			else
+			{
+				out.print("<script>window.alert('Transaction Failed');</script>");
+			}
+			con.close();
+		
+		
+		%>

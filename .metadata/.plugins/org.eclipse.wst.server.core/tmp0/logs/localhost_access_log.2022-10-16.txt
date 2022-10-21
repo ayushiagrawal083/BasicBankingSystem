@@ -1,0 +1,14 @@
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:06:42 +0530] "POST /Bank/money.jsp HTTP/1.1" 500 208
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:06:45 +0530] "POST /Bank/money.jsp HTTP/1.1" 500 208
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:06:52 +0530] "GET /Bank/viewprofile.jsp?email=agrawalayushi086@gmail.com HTTP/1.1" 200 1439
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:06:52 +0530] "GET /Bank/viewprofile.jsp?email=agrawalayushi086@gmail.com HTTP/1.1" 200 1439
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:06:52 +0530] "GET /Bank/viewprofile.jsp?email=agrawalayushi086@gmail.com HTTP/1.1" 200 1439
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:06:55 +0530] "GET /Bank/sendmoney.html?email=agrawalayushi086@gmail.com HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:07:06 +0530] "POST /Bank/money.jsp HTTP/1.1" 500 208
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:12:12 +0530] "GET /Bank/viewprofile.jsp?email=agrawalayushi086@gmail.com HTTP/1.1" 200 1439
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:12:14 +0530] "GET /Bank/sendmoney.html?email=agrawalayushi086@gmail.com HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:12:30 +0530] "POST /Bank/money.jsp HTTP/1.1" 500 208
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:17:50 +0530] "GET /Bank/viewprofile.jsp?email=agrawalayushi086@gmail.com HTTP/1.1" 200 1439
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:17:52 +0530] "GET /Bank/viewprofile.jsp?email=maya@123 HTTP/1.1" 200 1393
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:17:54 +0530] "GET /Bank/sendmoney.html?email=maya@123 HTTP/1.1" 200 208
+0:0:0:0:0:0:0:1 - - [16/Oct/2022:00:18:02 +0530] "POST /Bank/money.jsp HTTP/1.1" 500 208

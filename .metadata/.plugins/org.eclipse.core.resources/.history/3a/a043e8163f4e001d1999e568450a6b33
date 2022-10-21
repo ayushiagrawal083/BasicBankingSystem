@@ -1,0 +1,31 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page errorPage="errorpage.jsp" %>
+<%@include file="database.jsp"%>
+<%
+String reciever= request.getParameter("email1");
+String sender= request.getParameter("email");
+String mn= request.getParameter("money");
+int money=Integer.parseInt(mn);
+
+String qr="select t.sender as sender,t.reciever as reciever,t.moneyas money,c.bal as bal,from customer c,transaction t";
+PreparedStatement ps=con.prepareStatement(qr);
+ps.setString(1,sender);
+ps.setString(2,reciever);
+ps.setString(3,money);
+int i= ps.executeUpdate();
+if(i>0)
+			{
+				if(bal>=money)
+				{
+					
+				}
+			}
+			else
+			{
+				out.print("<script>window.alert('Transaction Failed');</script>");
+			}
+			con.close();
+		
+		
+		%>

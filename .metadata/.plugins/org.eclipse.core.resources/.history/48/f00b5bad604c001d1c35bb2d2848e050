@@ -1,0 +1,70 @@
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page errorPage="error.jsp" %>
+<%@include file="database.jsp" %>
+<%
+String email=(String)session.getAttribute("email");
+String qr="select * from customer ";
+PreparedStatement ps=con.prepareStatement(qr);
+ps.setString(1, email);
+ResultSet rs=ps.executeQuery();
+if(rs.next())
+{
+	%>	
+<style>
+table
+		{
+			width: 950px;
+			border-collapse: collapse;
+		}
+th
+		{
+			height: 50px;
+			background-color: yellow;;
+		    text-align: center;
+		}
+tr
+		{
+			text-align: center;
+			}
+</style>
+
+
+<table align="center" border="1px">
+	<tr>
+	<th>User Name</th>
+	<th>Email</th>
+	<th>Current Account Balance</th>
+	<th></th>
+	<th></th>
+	</tr>
+	<%
+	do
+	{
+	
+	String name=rs.getString("name");
+	String uemail=rs.getString("email");
+	String dt=rs.getString("bal");
+
+	%>
+	
+	
+	  <tr>
+		<td><%=name %></td>
+		<td><%=email %></td>
+		<td><%=bal %></td>
+		<a href="Transaction.jsp">Transfer Money</a>
+		<td><input type="submit" value="Transfer Money"></td>
+	</tr>
+		<%
+	}while(rs.next());
+	%>
+  </table><br /><br />
+	<%
+}
+else
+{
+	out.println("Transaction Failed");
+}
+con.close();
+%>
